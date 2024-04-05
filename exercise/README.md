@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab, you'll get an opportunity to practice OOP (Object-oriented programming) by building Tic-tac-toe terminal game with Python Classes.
+In this lab, you can practice object-oriented programming (OOP) by building a Tic-tac-toe terminal game with Python Classes.
 
-While working through this lab, think through the game play of Tic-Tac-Toe and, if necessary, pseudocode it. Try to write several small functions, each performing a single purpose, e.g., `print_board`, `get_move`, `check_for_winner`, etc. Think about how/where looping makes sense, e.g., loop until the player enters a correct move, until the game's over, etc.
+While working through this lab, consider the gameplay of Tic-Tac-Toe and, if necessary, pseudocode it. Try to write several small functions, each performing a single purpose, e.g., `print_board`, `get_move`, `check_for_winner`, etc. Consider how/where looping makes sense, e.g., loop until the player enters a correct move or until the game's over, etc.
 
 ## User Stories
 
@@ -12,19 +12,19 @@ Your goal is to implement the following user stores:
 
 - As a user (AAU), I want to see a welcome message at the start of a game.
 
-- AAU, before being prompted for a move, I want to see the board printed out in the console, so that I know what moves have been made.
+- AAU, before being prompted for a move, I want to see the board printed in the console to know what moves have been made.
 
 - AAU, at the begining of each turn, told who's turn it is: It's player X's turn!
 
-- AAU, I should be prompted to enter a move, and provided an example of valid input (`'Enter a valid move (example: A1)'`).
+- AAU, I should be prompted to enter a move and be provided an example of valid input (`'Enter a valid move (example: A1)'`).
 
-- AAU, I want to be able to enter my move's column letter in upper or lower case (a/A, b/B or c/C) to make it easier to enter my move.
+- AAU, I want to be able to enter my move's column letter in upper or lower case (a/A, b/B, or c/C) to make it easier to enter my move.
 
-- AAU, if I enter a move in an invalid format, or if I try to occupy a cell already taken, I want to see a message chastising me and be re-prompted.
+- AAU, if I enter a move in an invalid format or try to occupy a cell already taken, I want to see a message chastising me and be re-prompted.
 
 - AAU, after entering a move, I should once again be presented with the updated game board, notified of the current turn, and asked to enter a move for the other player. This process should continue until there is a winner or a tie
 
-- AAU, I should see a message at the end of the game indicating the winner, or stating that the game ended in a tie.
+- AAU, I should see a message at the end of the game indicating the winner or stating that the game ended in a tie.
 
 ## Hints
 
@@ -36,11 +36,11 @@ Create a `class` called `Game`. Within the `Game` class, use the `__init__` meth
 
 Below are some of the attributes you might include:
   
-  - `turn`: a string attribute indicating who's turn it is (`'X'` or `'O'`). Initialize it with `'X'`.
+  - `turn`: a string attribute indicating whose turn it is (`'X'` or `'O'`). Initialize it with `'X'`.
   
   - `tie`: a boolean attribute indicating if the game ended in a tie. Initialize it as `False`.
   
-  - `winner`: an attribute to store the winner of the game. Initialize it as `None`.
+  - `winner`: an attribute to store the game-winner. Initialize it as `None`.
   
   - `board`: a dictionary representing the state of the game board:
 
@@ -54,7 +54,7 @@ Below are some of the attributes you might include:
 
     Each key in the `board` represents a position on the board, with the corresponding value being an `'X'`, `'O'`, or an empty space (`None`).
 
-    Modeling the board itself as a dictionary and naming the keys appropriately, can simplify updating the board based upon what the player types in. For example, assume you store the player's input in a variable named `move`, you can convert it to lower case using `.lower()`, and use it as the key to access the `board`, i.e., `board[move]`.
+    Modeling the board itself as a dictionary and naming the keys appropriately can simplify updating the board based on what the player types in. For example, assume you store the player's input in a variable named `move`. You can convert it to lowercase using `.lower()` and use it as the key to access the `board`, i.e., `board[move]`.
 
 ### Step 2 - Playing the game
 
@@ -77,7 +77,7 @@ Next, define a `play_game` method and confirm that the method is accessible on a
 
 ### Step 3 - Rendering
 
-Next you'll want to define methods that can 'render' information for the user. You might want to break this logic down into two or three methods based on separation of concerns. 
+Next, you'll want to define methods that can 'render' information for the user. Based on the separation of concerns, you might break this logic down into two or three methods. 
 
 Consider the following approach:
 
@@ -85,29 +85,29 @@ Consider the following approach:
 
 The `print_board` method visualizes the current state of the game `board`.
 
-    ```python
-    def print_board(self):
-      b = self.board
-      print(f"""
-            A   B   C
-        1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '} 
-            ----------
-        2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
-            ----------
-        3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
-      """)
-    ```
+  ```python
+  def print_board(self):
+    b = self.board
+    print(f"""
+          A   B   C
+      1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '} 
+          ----------
+      2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
+          ----------
+      3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
+    """)
+  ```
 
   The `print` statement above should produce something like the following in your terminal:
 
-    ```plaintext
-            A   B   C
-        1)    |   |   
-            ----------
-        2)    |   |  
-            ----------
-        3)    |   |  
-    ```   
+  ```plaintext
+          A   B   C
+      1)    |   |   
+          ----------
+      2)    |   |  
+          ----------
+      3)    |   |  
+  ```   
 
 2. **Rendering messages**
 
@@ -132,35 +132,35 @@ Optionally, a third `render` method can be used to consolidate the other two, st
 
 ### Step 4 - Handling player input
 
-Next you'll need a method to handle user input such as `get_move` or `place_piece`. This method should prompt a user to enter a the key of an empty space on the `board`.
+Next, you'll need a method to handle user input, such as `get_move` or `place_piece`. This method should prompt a user to enter the key of an empty space on the `board`.
 
-To capture player input, make use of the `input()` function. This function will display a prompt in the terminal and return the string that the user enters.
+To capture player input, use the `input()` function. This function displays a prompt in the terminal and returns the string that the user enters.
 
 ```python
 move = input(f"Enter a valid movie (example: A1): ").lower()
 ```
 
-Within this method, its important to **ensure that the input received is valid**. 
+Within this method, it's essential to **ensure that the input received is valid**. 
 
 Valid input must satisfy two conditions:
 
 1. The input corresponds to a key on the `board`.
 2. The specified `board` space is currently unoccupied (`None`).
 
-To achieve this, set up a loop that **continuously prompts the user until a valid input is received**. You can create an infinite loop with `while True`. The loop should be configured so that it concludes with a `return` or `break` statement when valid input is received.
+To achieve this, set up a loop that **continuously prompts the user until a valid input is received**. You can create an infinite loop with `while True`. When valid input is received, the loop should be configured to conclude with a `return` or `break` statement.
 
 Take a look at the structure below for reference:
 
 ```python
   while True:
     # prompt user for input
-    # if the input is valid, update the board and break the loop
+    # If the input is valid, update the board and break the loop
     # otherwise, print a message notifying the user of the invalid input and allow the loop to continue
 ```
 
 ### Step 5 - Checking for a winner
 
-Next, create a method that can determine a winner by checking the `board` for the **eight** possible winning combinations. Upon detecting a winning combination, update the `winner` attribute to reflect the current player (`turn`).
+Next, create a method for determining a winner by checking the `board` for the **eight** possible winning combinations. Upon detecting a winning combination, update the `winner` attribute to reflect the current player (`turn`).
 
 A loop of some sort would be appropriate, but you can also check each combination manually:
 
@@ -176,7 +176,7 @@ The `check_for_winner` method should be followed with a `check_for_tie` method.
 
 This method should check if both of the following conditions are true:
 
-1. The `board` is full: All spaces on the `board` are filled, with no positions marked as `None`.
+1. The `board` is entire: All spaces on the `board` are filled, with no positions marked as `None`.
 2. No `winner`: A `winner` has not already been declared.
 
 If both of these conditions are met, the value of `tie` should be set to `True`.
@@ -187,7 +187,7 @@ The `switch_turn` method should alternate the value of `turn` between `'X'` and 
 
 ### Step 8 - Managing gameplay
 
-The last step is to combine all of these methods in a functional gameplay loop. The loop should continue until a `winner` or `tie` is declared.
+The last step is combining all these methods in a functional gameplay loop. The loop should continue until a `winner` or `tie` is declared.
 
 Below is an outline of how you might structure the `play_game` method:
 
@@ -208,10 +208,10 @@ Below is an outline of how you might structure the `play_game` method:
 
 If you wish to expand on the functionality of your game, try implementing the following user stories:
 
-- AAU, at the end of a game I should be asked if I would like to play again.
+- AAU, at the end of a game, I should be asked if I would like to play again.
 
 - AAU, if I accept the offer to play again, the game should reset and begin again.
 
 - AAU, if I decline the offer to play again, the program should stop running.
 
-- AAU, I would like the game to record wins and losses, and display these records at the end of every game.
+- AAU, I would like the game to record wins and losses and display these records at the end of every game.
