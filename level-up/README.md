@@ -1,3 +1,10 @@
 # ![Python Classes Lab - Level Up](./assets/hero.png)
 
-tktk Optional student-facing level up content should be added here. Not all lab modules will have level up content - if it doesn't, the `level-up` directory should be deleted, and the link to it in the main `README.md` file should be removed.
+## Level Up
+
+If you wish to expand on the functionality of your game, try implementing the following user stories:
+
+- AAU, at the end of a game, I should be asked if I would like to play again.
+- AAU, if I accept the offer to play again, the game should reset and begin again.
+- AAU, if I decline the offer to play again, the program should stop running.
+- AAU, I would like the game to record wins and losses and display these records at the end of every game.

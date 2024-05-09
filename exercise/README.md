@@ -11,19 +11,12 @@ While working through this lab, consider the gameplay of Tic-Tac-Toe and, if nec
 Your goal is to implement the following user stores:
 
 - As a user (AAU), I want to see a welcome message at the start of a game.
-
 - AAU, before being prompted for a move, I want to see the board printed in the console to know what moves have been made.
-
-- AAU, at the begining of each turn, told who's turn it is: It's player X's turn!
-
+- AAU, at the beginning of each turn, told whose turn it is: It's player X's turn!
 - AAU, I should be prompted to enter a move and be provided an example of valid input (`'Enter a valid move (example: A1)'`).
-
 - AAU, I want to be able to enter my move's column letter in upper or lower case (a/A, b/B, or c/C) to make it easier to enter my move.
-
 - AAU, if I enter a move in an invalid format or try to occupy a cell already taken, I want to see a message chastising me and be re-prompted.
-
 - AAU, after entering a move, I should once again be presented with the updated game board, notified of the current turn, and asked to enter a move for the other player. This process should continue until there is a winner or a tie
-
 - AAU, I should see a message at the end of the game indicating the winner or stating that the game ended in a tie.
 
 ## Hints
@@ -35,33 +28,29 @@ If you need some guidance with this lab, follow the steps below.
 Create a `class` called `Game`. Within the `Game` class, use the `__init__` method to initialize properties that represent the state of your game.
 
 Below are some of the attributes you might include:
-  
-  - `turn`: a string attribute indicating whose turn it is (`'X'` or `'O'`). Initialize it with `'X'`.
-  
-  - `tie`: a boolean attribute indicating if the game ended in a tie. Initialize it as `False`.
-  
-  - `winner`: an attribute to store the game-winner. Initialize it as `None`.
-  
-  - `board`: a dictionary representing the state of the game board:
 
-    ```python
-    {
-      'a1': None, 'b1': None, 'c1': None,
-      'a2': None, 'b2': None, 'c2': None,
-      'a3': None, 'b3': None, 'c3': None,
-    }
-    ```
+- `turn`: a string attribute indicating whose turn it is (`'X'` or `'O'`). Initialize it with `'X'`.
+- `tie`: a boolean attribute indicating if the game ended in a tie. Initialize it as `False`.
+- `winner`: an attribute to store the game-winner. Initialize it as `None`.
+- `board`: a dictionary representing the state of the game board:
 
-    Each key in the `board` represents a position on the board, with the corresponding value being an `'X'`, `'O'`, or an empty space (`None`).
+  ```python
+  {
+    'a1': None, 'b1': None, 'c1': None,
+    'a2': None, 'b2': None, 'c2': None,
+    'a3': None, 'b3': None, 'c3': None,
+  }
+  ```
 
-    Modeling the board itself as a dictionary and naming the keys appropriately can simplify updating the board based on what the player types in. For example, assume you store the player's input in a variable named `move`. You can convert it to lowercase using `.lower()` and use it as the key to access the `board`, i.e., `board[move]`.
+  Each key in the `board` represents a position on the board, with the corresponding value being an `'X'`, `'O'`, or an empty space (`None`).
+
+  Modeling the board itself as a dictionary and naming the keys appropriately can simplify updating the board based on what the player types in. For example, assume you store the player's input in a variable named `move`. You can convert it to lowercase using `.lower()` and use it as the key to access the `board`, i.e., `board[move]`.
 
 ### Step 2 - Playing the game
 
 Next, define a `play_game` method and confirm that the method is accessible on an instance of the `Game` class. This function will be used to activate and organize the flow of the game.
 
 - Within the `play_game` method, print a **welcome message** of your choosing.
-
 - Instantiate the `Game` class and invoke the `play_game` method:
 
   ```python
@@ -77,7 +66,7 @@ Next, define a `play_game` method and confirm that the method is accessible on a
 
 ### Step 3 - Rendering
 
-Next, you'll want to define methods that can 'render' information for the user. Based on the separation of concerns, you might break this logic down into two or three methods. 
+Next, you'll want to define methods that can 'render' information for the user. Based on the separation of concerns, you might break this logic down into two or three methods.
 
 Consider the following approach:
 
@@ -85,50 +74,50 @@ Consider the following approach:
 
 The `print_board` method visualizes the current state of the game `board`.
 
-  ```python
-  def print_board(self):
-    b = self.board
-    print(f"""
-          A   B   C
-      1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '} 
-          ----------
-      2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
-          ----------
-      3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
-    """)
-  ```
+```python
+def print_board(self):
+  b = self.board
+  print(f"""
+        A   B   C
+    1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '}
+        ----------
+    2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
+        ----------
+    3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
+  """)
+```
 
-  The `print` statement above should produce something like the following in your terminal:
+The `print` statement above should produce something like the following in your terminal:
 
-  ```plaintext
-          A   B   C
-      1)    |   |   
-          ----------
-      2)    |   |  
-          ----------
-      3)    |   |  
-  ```   
+```plaintext
+        A   B   C
+    1)    |   |
+        ----------
+    2)    |   |
+        ----------
+    3)    |   |
+```
 
 2. **Rendering messages**
 
 The `print_message` method updates users about the current status of a game, including whose turn it is, who won the game, and if the game ended in a tie.
 
-  ```python
-    def print_message(self):
-      ## If there is a tie: print("Tie game!")
-      ## If there is a winner: print(f"{self.winner} wins the game!")
-      ## Otherwise: print(f"It's player {self.turn}'s turn!")
-  ```
+```python
+  def print_message(self):
+    ## If there is a tie: print("Tie game!")
+    ## If there is a winner: print(f"{self.winner} wins the game!")
+    ## Otherwise: print(f"It's player {self.turn}'s turn!")
+```
 
 3. **Consolidated rendering**
 
 Optionally, a third `render` method can be used to consolidate the other two, streamlining the rendering process:
 
-  ```python
-    def render(self):
-      # Call upon print_board
-      ## Call upon print_message
-  ```
+```python
+  def render(self):
+    # Call upon print_board
+    ## Call upon print_message
+```
 
 ### Step 4 - Handling player input
 
@@ -140,7 +129,7 @@ To capture player input, use the `input()` function. This function displays a pr
 move = input(f"Enter a valid movie (example: A1): ").lower()
 ```
 
-Within this method, it's essential to **ensure that the input received is valid**. 
+Within this method, it's essential to **ensure that the input received is valid**.
 
 Valid input must satisfy two conditions:
 
@@ -203,15 +192,3 @@ Below is an outline of how you might structure the `play_game` method:
         # ...repeat until there is a winner or tie
     # Outside the loop, render state at the end of a game
 ```
-
-## Level Up
-
-If you wish to expand on the functionality of your game, try implementing the following user stories:
-
-- AAU, at the end of a game, I should be asked if I would like to play again.
-
-- AAU, if I accept the offer to play again, the game should reset and begin again.
-
-- AAU, if I decline the offer to play again, the program should stop running.
-
-- AAU, I would like the game to record wins and losses and display these records at the end of every game.
