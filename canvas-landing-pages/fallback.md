@@ -10,6 +10,6 @@ Welcome to our Python Object-Oriented Programming (OOP) Lab, where you will have
 
 ## Content
 
-- [Setup](./setup/README.md)
-- [Exercise](./exercise/README.md)
+- [Setup](../setup/README.md)
+- [Exercise](../exercise/README.md)
 - [Additional Suggested Features](../additional-suggested-features/README.md)
