@@ -1,8 +1,11 @@
-# ![Release Notes](../assets/release-notes.png)
+<h1>
+  <span class="headline">Classes Lab</span>
+  <span class="subhead">Release Notes</span>
+</h1>
 
 ## Version 1.0 - Updates from legacy content
 
-This release modularizes the legacy Python Classes Lab and provides some other minor updates detailed below.
+This release modularizes the legacy Python Classes Lab.
 
 ### Release details
 
@@ -11,5 +14,3 @@ This release modularizes the legacy Python Classes Lab and provides some other m
 #### Changes
 
 #### Removals
-
-
