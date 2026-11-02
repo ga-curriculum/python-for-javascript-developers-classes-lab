@@ -25,7 +25,7 @@ Estimated time to complete core lab exercise: **4 hours**
 
 ### Solution code
 
-🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/python-for-javascript-developers-classes-lab-solution)
+🏁 [Solution code](https://github.com/ga-curriculum/python-for-javascript-developers-classes-lab-solution)
 
 ### Course landing pages
 
